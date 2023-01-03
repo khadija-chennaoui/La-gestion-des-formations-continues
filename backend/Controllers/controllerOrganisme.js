@@ -8,7 +8,7 @@ async function AddOrganisme(req, res) {
 
 
   if (!Neworganise) throw Error("eroor");
-  else res.json({ message: "Organisme Added" });
+  else res.json(Neworganise);
 }
 
 async function AllOrganisme(req, res) {
