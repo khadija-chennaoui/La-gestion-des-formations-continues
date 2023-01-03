@@ -12,12 +12,12 @@ const UserSchema = mongoose.Schema({
     type: String,
     require: true,
   },
-  role_id: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "role",
-    },
-  ],
+  // role_id: [
+  //   {
+  //     type: mongoose.Schema.Types.ObjectId,
+  //     ref: "role",
+  //   },
+  // ],
   formation_id: [
     {
       type: mongoose.Schema.Types.ObjectId,
