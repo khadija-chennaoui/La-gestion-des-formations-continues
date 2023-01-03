@@ -8,7 +8,7 @@ async function AddFormation(req, res) {
 
 
   if (!Newformation) throw Error("eroor");
-  else res.json({ message: "Formation Added" });
+  else res.json(Newformation);
 }
 
 async function AllFormation(req, res) {
