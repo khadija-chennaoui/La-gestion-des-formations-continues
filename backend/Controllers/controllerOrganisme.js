@@ -5,24 +5,32 @@ async function AddOrganisme(req, res) {
   const Neworganise = await organisme.create({
     ...body,
   });
-
-
-  if (!Neworganise) throw Error("eroor");
-  else res.json(Neworganise);
+  try {
+    if (Neworganise) res.json(Neworganise);
+  } catch {
+    throw Error("eroor");
+  }
 }
 
 async function AllOrganisme(req, res) {
   const Neworganise = await organisme.find();
-  res.json(Neworganise);
+  try {
+    if(Neworganise) res.json(Neworganise);
+  }
+  catch {
+    throw new Error(error);
+  }
 }
 
-async function DeletOrganisme(req, res){
-const { id } = req.params
-const delet = await organisme.findOneAndDelete({_id:id})
-if(!delet) throw Error('! Not deleted')
-else res.json({message : 'Deleted'})
+async function DeletOrganisme(req, res) {
+  const { id } = req.params;
+  const delet = await organisme.findOneAndDelete({ _id: id });
+  try {
+    if (delet) res.json({ message: "Deleted" });
+  } catch {
+    throw Error("! Not deleted");
+  }
 }
-
 
 module.exports = {
   AddOrganisme,
