@@ -18,12 +18,8 @@ const UserSchema = mongoose.Schema({
       ref: "role",
     },
   ],
-  formation_id: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "formation",
-    },
-  ],
+
+
   organisme_id: [
     {
       type: mongoose.Schema.Types.ObjectId,

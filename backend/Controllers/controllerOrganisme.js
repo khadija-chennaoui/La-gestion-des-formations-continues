@@ -8,7 +8,7 @@ async function AddOrganisme(req, res) {
   try {
     if (Neworganise) res.json(Neworganise);
   } catch {
-    throw Error("eroor");
+    throw Error("error")
   }
 }
 

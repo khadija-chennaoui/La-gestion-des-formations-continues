@@ -4,9 +4,9 @@ const OrganismeSchema = mongoose.Schema({
         type:String
     },
     phone:{
-        type: Number,
+        type: String,
     },
-    address:{
+    ville:{
         type:String
     }
 })

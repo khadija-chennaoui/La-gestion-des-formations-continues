@@ -5,10 +5,12 @@ async function AddFormation(req, res) {
   const Newformation = await formation.create({
     ...body,
   });
-
-
-  if (!Newformation) throw Error("eroor");
-  else res.json(Newformation);
+  try{
+    if (Newformation) res.json(Newformation);
+  }
+  catch {
+    throw Error("eroor");
+  }
 }
 
 async function AllFormation(req, res) {
@@ -19,8 +21,13 @@ async function AllFormation(req, res) {
 async function DeletFormation(req, res){
 const { id } = req.params
 const delet = await formation.findOneAndDelete({_id:id})
-if(!delet) throw Error('! Not deleted')
-else res.json({message : 'Deleted'})
+try{
+  if(delet) res.json({message : 'Deleted'}) }
+  
+ catch{
+  throw Error('! Not deleted')
+}
+
 }
 
 
