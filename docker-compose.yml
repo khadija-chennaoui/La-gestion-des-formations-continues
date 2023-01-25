@@ -2,23 +2,14 @@ version: '3.8'
 services:
   backend:
     build: ./backend
-    container_name: backend
+    container_name: api
     ports:
       - '4000:4000'
 
-  front:
+  frontend:
     build: ./front
     container_name: front
     ports:
         - '3000:3000'
     depends_on:
       - backend
-
-  mongodb:
-    image: mongo:latest
-    volumes:
-      - mongodb_data:/data/db
-    ports:
-      - "27017:27017"
-volumes:
-  mongodb_data:
