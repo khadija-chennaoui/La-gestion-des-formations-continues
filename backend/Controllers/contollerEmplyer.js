@@ -33,6 +33,7 @@ async function LoginUser(req, res) {
     const existeUser = await Emplyer.findOne({ email: body.email });
     if (!existeUser || !(await bcrypt.compare(body.password, existeUser.password)))
       throw Error("Email or Password inccorect");
+   else {
     const createToken = await jwt.sign(
       { _id: existeUser._id },
       process.env.SECRET_TOCKEN
@@ -44,6 +45,7 @@ async function LoginUser(req, res) {
       token: storage("token"),
       name: existeUser.name,
     });
+   }
   }
 
 }
