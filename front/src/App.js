@@ -7,17 +7,20 @@ import TableFormation from "./components/admin/formation/TableFormation";
 import TableAssigniement from "./components/admin/assigniement/TableAssigniement";
 import Login from "./components/Authentification/login";
 import MaFormation from "./components/emloyer/MaFormation";
+import Error from "./components/emloyer/Error";
 import PrivateRoute from "./privateRoute/PrivateRoutes";
 import PrivateRole from "./privateRoute/PrivateRole";
-import Error from "./privateRoute/Error";
+import Event from "./components/Event";
+
 export default function App() {
   return (
     <>
       <Routes>
         {/* Public Route */}
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />}/>
         <Route path="/" element={<Login />} />
         <Route path="/*" element={<Error/>} />
+        <Route path="event" element={<Event/>} />
         
         {/* Private Routes */}
         <Route element={<PrivateRoute />}>
